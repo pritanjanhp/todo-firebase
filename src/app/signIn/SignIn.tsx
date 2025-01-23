@@ -4,7 +4,6 @@ import { auth } from "@/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
 } from "firebase/auth";
 import React, { useState } from "react";
 import Link from "next/link";

@@ -7,9 +7,8 @@ import {db} from '@/firebase'
 
 const AddTodo = () => {
   const [todos, setTodos] = useState<any>([]);
-  // console.log(todos);
+  console.log(todos);
   const [loading ,setLoading]= useState<boolean>(false);
-
   const auth = useAuth();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,22 +16,21 @@ const AddTodo = () => {
     let todo = (e.currentTarget.todoInput as HTMLInputElement).value;
     // console.log(todo);
 
-    // let newTodos = [todo, ...todos];
-
+    let newTodos = [todo, ...todos];
 
     let obj = {
       newTodos:todo,
       timestamp : new Date().getTime(),
       completed:false
     }
-        // setTodos(newTodos);
-    // e.currentTarget.reset();
-
+    setTodos(newTodos);
+    e.currentTarget.reset();
 
     const todoRef = collection(db, 'users', auth?.uid, 'todos');
     setLoading(true);
     try{
       const docRef = await addDoc(todoRef,obj);
+      console.log(docRef)
     }catch(error){
       console.log(error)
     } finally{
@@ -69,6 +67,5 @@ const AddTodo = () => {
     </>
   );
 };
-
 
 export default AddTodo;
