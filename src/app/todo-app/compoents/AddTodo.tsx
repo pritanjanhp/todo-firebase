@@ -1,0 +1,74 @@
+"use client";
+
+import useAuth from "@/component/hooks/useAuth";
+import { addDoc, collection } from "firebase/firestore";
+import React, { useState } from "react";
+import {db} from '@/firebase'
+
+const AddTodo = () => {
+  const [todos, setTodos] = useState<any>([]);
+  // console.log(todos);
+  const [loading ,setLoading]= useState<boolean>(false);
+
+  const auth = useAuth();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let todo = (e.currentTarget.todoInput as HTMLInputElement).value;
+    // console.log(todo);
+
+    // let newTodos = [todo, ...todos];
+
+
+    let obj = {
+      newTodos:todo,
+      timestamp : new Date().getTime(),
+      completed:false
+    }
+        // setTodos(newTodos);
+    // e.currentTarget.reset();
+
+
+    const todoRef = collection(db, 'users', auth?.uid, 'todos');
+    setLoading(true);
+    try{
+      const docRef = await addDoc(todoRef,obj);
+    }catch(error){
+      console.log(error)
+    } finally{
+      setLoading(false);
+
+      (document.getElementById('todo-input') as HTMLInputElement).value = "";
+      (document.getElementById('todo-input') as HTMLInputElement).focus();
+    }
+  };
+  return (<>
+    <form onSubmit={handleSubmit} className="mt-4 flex justify-center">
+      <input
+        type="text"
+        className="border border-blue-500 mt-2 m-3 p-3 rounded-md"
+        id="todo-input"
+        placeholder="add todo"
+        name="todoInput"
+      />
+      <button
+        type="submit"
+        className="border border-blue-500 m-3 p-3 rounded-md bg-blue-500 hover:bg-blue-400 hover:italic hover:text-lg text-white"
+      >
+        Add Todo
+      </button>
+    </form>
+    <div className="gap-2">
+      
+    {todos?.map((todo: string, index: number) => 
+      <p key={index} className="flex flex-col  gap-3 rounded-md">
+        <h1 className="border-none border border-b-4 flex flex-col p-2 gap-3 rounded-md">{todo}</h1>
+        </p>
+    )}
+    </div>
+    </>
+  );
+};
+
+
+export default AddTodo;
