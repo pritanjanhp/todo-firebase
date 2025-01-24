@@ -4,6 +4,13 @@ import React, { useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { MdArrowOutward, MdDeleteOutline } from "react-icons/md";
 
+// type Todo = {
+//   id: number;
+//   complete: boolean;
+//   newTodos: string;
+//   timestamp: number;
+// };
+
 interface TodoItemProps {
   todo: any;
   authUid: string;
@@ -14,10 +21,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, authUid }) => {
   const [newTodo, setNewTodo] = useState(todo.newTodos);
 
   const handleCheckBoc = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    let checked = e.target.checked;
-    let todoData = doc(db, "users", authUid, "todos", todo.id);
+    const checked = e.target.checked;
+    const todoData = doc(db, "users", authUid, "todos", todo.id);
     await updateDoc(todoData, { complete: checked });
-    console.log(checked, todoData);
+    // console.log(checked, todoData);
   };
 
   const handleEdit = async () => {
@@ -31,7 +38,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, authUid }) => {
   };
 
   const handleDelete = async () => {
-    let todoData = doc(db, "users", authUid, "todos", todo.id);
+    const todoData = doc(db, "users", authUid, "todos", todo.id);
     await deleteDoc(todoData);
   };
 

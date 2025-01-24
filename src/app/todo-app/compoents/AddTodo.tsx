@@ -17,8 +17,8 @@ const AddTodo = () => {
     const todo = (e.currentTarget.todoInput as HTMLInputElement).value;
     // console.log(todo);
 
-    let newTodos = [todo, ...todos];
-    let obj = {
+    const newTodos = [todo, ...todos];
+    const obj = {
       newTodos:todo,
       timestamp : new Date().getTime(),
     }
