@@ -1,0 +1,45 @@
+[debug] [2025-01-24T09:09:02.768Z] ----------------------------------------------------------------------
+[debug] [2025-01-24T09:09:02.774Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-01-24T09:09:02.775Z] CLI Version:   13.29.2
+[debug] [2025-01-24T09:09:02.775Z] Platform:      win32
+[debug] [2025-01-24T09:09:02.776Z] Node Version:  v20.17.0
+[debug] [2025-01-24T09:09:02.776Z] Time:          Fri Jan 24 2025 14:39:02 GMT+0530 (India Standard Time)
+[debug] [2025-01-24T09:09:02.776Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-24T09:09:03.104Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-24T09:09:03.105Z] > authorizing via signed-in user (pritanjanbaranwal03.hp@gmail.com)
+[debug] [2025-01-24T09:09:03.105Z] [iam] checking project nextjs-hp for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-24T09:09:03.108Z] Checked if tokens are valid: true, expires at: 1737712203525
+[debug] [2025-01-24T09:09:03.108Z] Checked if tokens are valid: true, expires at: 1737712203525
+[debug] [2025-01-24T09:09:03.110Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextjs-hp:testIamPermissions [none]
+[debug] [2025-01-24T09:09:03.110Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextjs-hp:testIamPermissions x-goog-quota-user=projects/nextjs-hp
+[debug] [2025-01-24T09:09:03.110Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextjs-hp:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-24T09:09:04.679Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextjs-hp:testIamPermissions 200
+[debug] [2025-01-24T09:09:04.679Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextjs-hp:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-24T09:09:04.680Z] Checked if tokens are valid: true, expires at: 1737712203525
+[debug] [2025-01-24T09:09:04.680Z] Checked if tokens are valid: true, expires at: 1737712203525
+[debug] [2025-01-24T09:09:04.680Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/nextjs-hp/serviceAccounts/nextjs-hp@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-01-24T09:09:04.680Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/nextjs-hp/serviceAccounts/nextjs-hp@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-01-24T09:09:06.455Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/nextjs-hp/serviceAccounts/nextjs-hp@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2025-01-24T09:09:06.455Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/nextjs-hp/serviceAccounts/nextjs-hp@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2025-01-24T09:09:06.456Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/nextjs-hp/serviceAccounts/nextjs-hp@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/nextjs-hp/serviceAccounts/nextjs-hp@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[debug] [2025-01-24T09:09:06.458Z] Checked if tokens are valid: true, expires at: 1737712203525
+[debug] [2025-01-24T09:09:06.458Z] Checked if tokens are valid: true, expires at: 1737712203525
+[debug] [2025-01-24T09:09:06.458Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nextjs-hp [none]
+[debug] [2025-01-24T09:09:06.945Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nextjs-hp 200
+[debug] [2025-01-24T09:09:06.945Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nextjs-hp {"projectId":"nextjs-hp","projectNumber":"818298834937","displayName":"nextJs-hp","name":"projects/nextjs-hp","resources":{"hostingSite":"nextjs-hp"},"state":"ACTIVE","etag":"1_40644816-df80-4ba0-b5ae-ad677c8fbc00"}
+[info] 
+[info] === Deploying to 'nextjs-hp'...
+[info] 
+[info] i  deploying firestore, functions, hosting 
+[debug] [2025-01-24T09:09:07.175Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:457:7)
+    at Config.path (C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:130:45)
+    at getChildEnvironment (C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:57:49)
+    at runTargetCommands (C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:78:14)
+    at C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:152:24
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async chain (C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:40:9)
+    at async deploy (C:\Users\PRITANJAN BARANWAL\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:99:5)
+[error] 
+[error] Error: An unexpected error has occurred.

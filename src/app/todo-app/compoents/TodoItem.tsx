@@ -50,13 +50,13 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, authUid }) => {
           type="checkbox"
           checked={todo.complete}
           onChange={handleCheckBoc}
-          //   disabled={todo.complete}
         />
 
         {isEdit
           ? <input
               type="text"
               value={newTodo}
+              className="border-b-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               onChange={e => setNewTodo(e.target.value)}
             />
           : <h2 className={todo.complete ? "line-through text-gray-400" : ""}>
@@ -66,7 +66,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, authUid }) => {
       <div className="flex gap-3">
         <button
           onClick={handleEdit}
-          className="bg-blue-500 text-white px-2 py-1 rounded-md"
+          className="bg-blue-500 text-white px-2 py-1 rounded-md border border-b-3"
           disabled={todo.complete}
         >
           {isEdit ? <MdArrowOutward /> : <CiEdit />}
