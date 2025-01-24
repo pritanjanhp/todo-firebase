@@ -6,17 +6,19 @@ import { useEffect, useState } from "react";
 
 const useAuth = () => {
   const [user, setUser] = useState<any | null>(null);
+
   useEffect(() => {
     const demo = onAuthStateChanged(auth, (user: any) => {
       if (user) {
-        console.log("user", user);
+        // console.log("user", user);
         setUser(user);
       } else {
-        console.log("no user");
+        // console.log("no user");
+        setUser(null);
       }
     });
     return () => demo();
-  }, [user]);
+  }, []);
   return user;
 };
 

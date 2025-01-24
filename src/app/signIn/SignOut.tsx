@@ -13,7 +13,13 @@ const SignOut = () => {
   };
   return (
     <div>
-      <button onClick={handleSignout}>sign out</button>
+      <button
+        onClick={handleSignout}
+        className="top-0 bg-red-300 m-2 p-2 rounded-md"
+      >
+        {/* <AiOutlineLogout /> */}
+        sign out
+      </button>
     </div>
   );
 };

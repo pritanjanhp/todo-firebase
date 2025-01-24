@@ -3,16 +3,17 @@
 import { auth } from "@/firebase";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from "firebase/auth";
 import React, { useState } from "react";
-import Link from "next/link";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
+  // const router = useRouter();
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,10 +23,13 @@ const SignIn = () => {
       .then(userCredential => {
         console.log("Signed in:", userCredential.user);
         setLoading(false);
+        // router.push("/todo-app");
+        window.location.href = "/todo-app";
       })
       .catch(error => {
         console.log("Error while signing in:", error.message);
         setError(error.message);
+        setLoading(false);
       });
   };
 
@@ -38,7 +42,7 @@ const SignIn = () => {
         setLoading(false);
       })
       .catch(error => {
-        console.log("Error while signing up:", error.message);
+        // console.log("Error while signing up:", error.message);
         setError(error.message);
         setLoading(false);
       });
@@ -71,19 +75,19 @@ const SignIn = () => {
         </button>
       </Link> */}
 
-      <Link href="/todo-app">
-        <button
-          className="min-w-[15rem] bg-blue-400 rounded-md p-2 m-2"
-          type="submit"
-        >
-          Login
-        </button>
-      </Link>
+      {/* <Link href="/todo-app"> */}
+      <button
+        className="min-w-[15rem] bg-blue-400 rounded-md p-2 m-2"
+        type="submit"
+      >
+        Login
+      </button>
+      {/* </Link> */}
 
-      {error &&
+      {/* {error &&
         <p className="text-red-500">
           {!error ? "you are correct" : error}
-        </p>}
+        </p>} */}
 
       <button
         className="min-w-[15rem] bg-blue-400 rounded-md p-2 m-2"
@@ -93,8 +97,8 @@ const SignIn = () => {
         Sign Up
       </button>
 
-      <p>
-        {loading ? "sigining in..." : `some error ${error}`}{" "}
+      <p className="text-red-400">
+        {loading ? "sigining in..." : `${error}`}{" "}
       </p>
 
       {/*  <button type="button" onClick={() => signOut(auth)}>
